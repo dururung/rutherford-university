@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rutherford University</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #0d1d3a;
+            --navy-deep: #071126;
+            --navy-light: #18315f;
+            --gold: #b89b5e;
+            --cream: #f6f3ed;
+            --paper: #fbfaf7;
+            --ink: #182033;
+            --gray: #657084;
+            --line: rgba(13, 29, 58, 0.13);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        /* ---------------------------
+           HEADER
+        --------------------------- */
+
+        .topbar {
+            background: var(--navy-deep);
+            color: rgba(255,255,255,0.78);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+        }
+
+        .topbar-inner {
+            width: min(1400px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .topbar-links a {
+            transition: 0.2s ease;
+        }
+
+        .topbar-links a:hover {
+            color: white;
+        }
+
+        header {
+            background: var(--paper);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            width: min(1400px, calc(100% - 48px));
+            min-height: 84px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+
+        .crest {
+            width: 52px;
+            height: 58px;
+            background: var(--navy);
+            border: 2px solid var(--gold);
+            color: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Playfair Display", serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            position: relative;
+            clip-path: polygon(
+                10% 0,
+                90% 0,
+                90% 67%,
+                50% 100%,
+                10% 67%
+            );
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .brand-text strong {
+            font-family: "Playfair Display", serif;
+            color: var(--navy);
+            font-size: 1.32rem;
+            letter-spacing: 0.01em;
+        }
+
+        .brand-text span {
+            margin-top: 7px;
+            color: var(--gold);
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--navy);
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .menu-button {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 1.5rem;
+            color: var(--navy);
+            cursor: pointer;
+        }
+
+        /* ---------------------------
+           HERO
+        --------------------------- */
+
+        .hero {
+            position: relative;
+            min-height: 720px;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(6, 16, 35, 0.93) 0%,
+                    rgba(8, 22, 47, 0.82) 45%,
+                    rgba(8, 22, 47, 0.30) 100%
+                ),
+                url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2400&q=85")
+                center/cover;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent 70%,
+                    rgba(7,17,38,0.65)
+                );
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            width: min(1400px, calc(100% - 48px));
+            margin: 0 auto;
+            min-height: 720px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 100px 0 120px;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-kicker::before {
+            content: "";
+            width: 38px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .hero h1 {
+            max-width: 850px;
+            color: white;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(3.5rem, 7vw, 7rem);
+            line-height: 0.95;
+            font-weight: 500;
+            letter-spacing: -0.04em;
+        }
+
+        .hero h1 em {
+            color: #d7c08c;
+            font-style: italic;
+        }
+
+        .hero p {
+            max-width: 580px;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.76);
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 38px;
+        }
+
+        .button {
+            padding: 15px 24px;
+            border: 1px solid transparent;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            transition: 0.25s ease;
+        }
+
+        .button.primary {
+            background: var(--gold);
+            color: var(--navy-deep);
+        }
+
+        .button.primary:hover {
+            background: #d2b77b;
+            transform: translateY(-2px);
+        }
+
+        .button.secondary {
+            color: white;
+            border-color: rgba(255,255,255,0.45);
+        }
+
+        .button.secondary:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        /* 우측 하단 정보 박스 */
+
+        .hero-note {
+            position: absolute;
+            right: max(24px, calc((100vw - 1400px) / 2));
+            bottom: 38px;
+            z-index: 3;
+
+            width: min(340px, calc(100vw - 48px));
+
+            background: rgba(246,243,237,0.96);
+            color: var(--navy);
+            padding: 24px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.18);
+        }
+
+        .hero-note span {
+            display: block;
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            color: var(--gold);
+            margin-bottom: 9px;
+        }
+
+        .hero-note strong {
+            display: block;
+            font-family: "Playfair Display", serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .hero-note p {
+            margin: 0;
+            color: var(--gray);
+            font-size: 0.82rem;
+            line-height: 1.6;
+        }
+
+        /* ---------------------------
+           INTRO
+        --------------------------- */
+
+        .section {
+            width: min(1400px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 120px 0;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 55px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .section h2 {
+            font-family: "Playfair Display", serif;
+            color: var(--navy);
+            font-size: clamp(2.3rem, 4vw, 4rem);
+            font-weight: 500;
+            letter-spacing: -0.03em;
+        }
+
+        .section-heading p {
+            max-width: 500px;
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 520px;
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(10,25,52,0.12),
+                    rgba(10,25,52,0.30)
+                ),
+                url("https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .about-copy h3 {
+            font-family: "Playfair Display", serif;
+            color: var(--navy);
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.35;
+            margin-bottom: 24px;
+        }
+
+        .about-copy p {
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .motto {
+            margin-top: 30px;
+            padding: 24px;
+            border-left: 3px solid var(--gold);
+            background: var(--cream);
+        }
+
+        .motto strong {
+            font-family: "Playfair Display", serif;
+            color: var(--navy);
+            font-size: 1.3rem;
+        }
+
+        .motto span {
+            display: block;
+            margin-top: 8px;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* ---------------------------
+           STATS
+        --------------------------- */
+
+        .stats {
+            background: var(--navy);
+            color: white;
+        }
+
+        .stats-inner {
+            width: min(1400px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 72px 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat {
+            border-left: 1px solid rgba(255,255,255,0.22);
+            padding-left: 25px;
+        }
+
+        .stat:first-child {
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .stat strong {
+            display: block;
+            color: #e4ce97;
+            font-family: "Playfair Display", serif;
+            font-size: 3rem;
+            font-weight: 500;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 10px;
+            color: rgba(255,255,255,0.65);
+            font-size: 0.82rem;
+        }
+
+        /* ---------------------------
+           ACADEMICS
+        --------------------------- */
+
+        .academics {
+            background: #f0eee8;
+        }
+
+        .academic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--line);
+            border: 1px solid var(--line);
+        }
+
+        .academic-card {
+            background: var(--paper);
+            padding: 38px 32px;
+            min-height: 230px;
+            transition: 0.25s ease;
+        }
+
+        .academic-card:hover {
+            background: white;
+        }
+
+        .academic-number {
+            color: var(--gold);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .academic-card h3 {
+            margin-top: 28px;
+            color: var(--navy);
+            font-family: "Playfair Display", serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        .academic-card p {
+            margin-top: 12px;
+            color: var(--gray);
+            font-size: 0.88rem;
+            line-height: 1.75;
+        }
+
+        /* ---------------------------
+           CAMPUS
+        --------------------------- */
+
+        .campus-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 220px;
+            gap: 16px;
+        }
+
+        .campus-card {
+            position: relative;
+            overflow: hidden;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .campus-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(4,12,28,0.75),
+                rgba(4,12,28,0.05)
+            );
+        }
+
+        .campus-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .campus-card span {
+            position: absolute;
+            left: 22px;
+            bottom: 18px;
+            color: white;
+            font-family: "Playfair Display", serif;
+            font-size: 1.3rem;
+        }
+
+        .campus-card small {
+            position: absolute;
+            left: 22px;
+            bottom: 48px;
+            color: #dfc991;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .founder {
+            grid-column: span 7;
+            grid-row: span 2;
+            background-image: url("https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1800&q=85");
+        }
+
+        .library {
+            grid-column: span 5;
+            background-image: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=85");
+        }
+
+        .cherry {
+            grid-column: span 5;
+            background-image: url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=85");
+        }
+
+        .lake {
+            grid-column: span 4;
+            background-image: url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85");
+        }
+
+        .stadium {
+            grid-column: span 8;
+            background-image: url("https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=85");
+        }
+
+        /* ---------------------------
+           EVENTS
+        --------------------------- */
+
+        .events {
+            background: var(--cream);
+        }
+
+        .event-list {
+            border-top: 1px solid var(--line);
+        }
+
+        .event-row {
+            display: grid;
+            grid-template-columns: 120px 1fr 1.5fr auto;
+            gap: 30px;
+            align-items: center;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .event-month {
+            color: var(--gold);
+            font-family: "Playfair Display", serif;
+            font-size: 1.7rem;
+        }
+
+        .event-name {
+            color: var(--navy);
+            font-family: "Playfair Display", serif;
+            font-size: 1.25rem;
+        }
+
+        .event-description {
+            color: var(--gray);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .event-tag {
+            border: 1px solid var(--line);
+            color: var(--navy);
+            padding: 8px 12px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+
+        /* ---------------------------
+           RUTHERFORD DAY
+        --------------------------- */
+
+        .rutherford-day {
+            position: relative;
+            overflow: hidden;
+            background: var(--navy);
+            color: white;
+        }
+
+        .rutherford-day::after {
+            content: "RU";
+            position: absolute;
+            right: -0.03em;
+            top: -0.18em;
+            color: rgba(255,255,255,0.025);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(12rem, 28vw, 34rem);
+            font-weight: 700;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .rutherford-day-inner {
+            width: min(1400px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 115px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rutherford-day .eyebrow {
+            color: #dfc991;
+        }
+
+        .rutherford-day h2 {
+            max-width: 800px;
+            color: white;
+        }
+
+        .day-grid {
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .day-copy p {
+            color: rgba(255,255,255,0.72);
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .flower-box {
+            border-left: 1px solid rgba(255,255,255,0.25);
+            padding-left: 40px;
+        }
+
+        .flower-box span {
+            color: #dfc991;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+        }
+
+        .flower-box h3 {
+            margin-top: 18px;
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .flower-box p {
+            margin-top: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        /* ---------------------------
+           ATHLETICS
+        --------------------------- */
+
+        .athletics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 650px;
+        }
+
+        .athletics-image {
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(6,15,34,0.05),
+                    rgba(6,15,34,0.28)
+                ),
+                url("https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .athletics-copy {
+            background: var(--navy-deep);
+            color: white;
+            padding: 100px max(48px, calc((100vw - 1400px) / 2));
+            padding-left: 90px;
+        }
+
+        .athletics-copy .eyebrow {
+            color: var(--gold);
+        }
+
+        .athletics-copy h2 {
+            color: white;
+        }
+
+        .athletics-copy p {
+            margin-top: 25px;
+            max-width: 560px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.9;
+        }
+
+        .sports-list {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .sports-list span {
+            padding: 10px 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.75rem;
+        }
+
+        /* ---------------------------
+           FOOTER
+        --------------------------- */
+
+        footer {
+            background: #071126;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .footer-inner {
+            width: min(1400px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 75px 0 35px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 50px;
+            padding-bottom: 70px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-family: "Playfair Display", serif;
+            font-size: 1.7rem;
+            font-weight: 500;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            margin-top: 16px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.8;
+            font-size: 0.85rem;
+        }
+
+        .footer-column strong {
+            display: block;
+            color: var(--gold);
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            margin-bottom: 10px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: rgba(255,255,255,0.38);
+            font-size: 0.7rem;
+        }
+
+        /* ---------------------------
+           MOBILE
+        --------------------------- */
+
+        @media (max-width: 1050px) {
+
+            nav {
+                display: none;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .about-grid,
+            .athletics {
+                grid-template-columns: 1fr;
+            }
+
+            .athletics-image {
+                min-height: 450px;
+            }
+
+            .athletics-copy {
+                padding: 80px 48px;
+            }
+
+            .stats-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(3) {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .academic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .event-row {
+                grid-template-columns: 90px 1fr;
+            }
+
+            .event-description,
+            .event-tag {
+                grid-column: 2;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .topbar-links {
+                display: none;
+            }
+
+            .topbar-inner {
+                justify-content: center;
+            }
+
+            .header-inner,
+            .topbar-inner,
+            .hero-inner,
+            .section,
+            .stats-inner,
+            .rutherford-day-inner,
+            .footer-inner {
+                width: min(100% - 32px, 1400px);
+            }
+
+            .hero {
+                min-height: 760px;
+            }
+
+            .hero-inner {
+                min-height: 760px;
+                padding-top: 80px;
+                padding-bottom: 230px;
+            }
+
+            .hero h1 {
+                font-size: 3.4rem;
+            }
+
+            .hero-note {
+                right: 16px;
+                bottom: 25px;
+                width: calc(100% - 32px);
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-heading p {
+                margin-top: 20px;
+            }
+
+            .about-image {
+                min-height: 380px;
+            }
+
+            .stats-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 35px 20px;
+            }
+
+            .stat,
+            .stat:nth-child(3) {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .academic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .campus-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 260px;
+            }
+
+            .founder,
+            .library,
+            .cherry,
+            .lake,
+            .stadium {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .event-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .event-description,
+            .event-tag {
+                grid-column: auto;
+            }
+
+            .event-tag {
+                justify-self: start;
+                margin-top: 8px;
+            }
+
+            .day-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .flower-box {
+                border-left: none;
+                border-top: 1px solid rgba(255,255,255,0.2);
+                padding-left: 0;
+                padding-top: 30px;
+            }
+
+            .athletics-copy {
+                padding: 75px 16px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px 25px;
+            }
+
+            .footer-brand {
+                grid-column: span 2;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+
+            .brand-text strong {
+                font-size: 1.05rem;
+            }
+
+            .crest {
+                width: 45px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+        <div class="topbar-inner">
+            <span>RUTHERFORD UNIVERSITY · EST. 1847</span>
+
+            <div class="topbar-links">
+                <a href="#">Students</a>
+                <a href="#">Faculty & Staff</a>
+                <a href="#">Alumni</a>
+                <a href="#">Parents</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header>
+        <div class="header-inner">
+
+            <a href="#" class="brand">
+
+                <div class="crest">RU</div>
+
+                <div class="brand-text">
+                    <strong>Rutherford University</strong>
+                    <span>Tradition · Inquiry · Influence</span>
+                </div>
+
+            </a>
+
+            <nav>
+                <a href="#about">About</a>
+                <a href="#academics">Academics</a>
+                <a href="#campus">Campus Life</a>
+                <a href="#events">Events</a>
+                <a href="#athletics">Athletics</a>
+                <a href="#admissions">Admissions</a>
+            </nav>
+
+            <button class="menu-button">☰</button>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <div class="hero-kicker">
+                Rutherford University
+            </div>
+
+            <h1>
+                Tradition.<br>
+                <em>Inquiry.</em><br>
+                Influence.
+            </h1>
+
+            <p>
+                A place shaped by history, driven by curiosity,
+                and defined by the people who continue to change it.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#about" class="button primary">
+                    Discover Rutherford
+                </a>
+
+                <a href="#campus" class="button secondary">
+                    Explore Campus
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-note">
+
+            <span>UNIVERSITY ANNIVERSARY</span>
+
+            <strong>Rutherford Day</strong>
+
+            <p>
+                August 26 · A day without classes,
+                when the entire campus comes together.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="section" id="about">
+
+        <div class="section-heading">
+
+            <div>
+                <div class="eyebrow">About Rutherford</div>
+                <h2>An old university<br>still becoming new.</h2>
+            </div>
+
+            <p>
+                Rutherford is home to students from every kind of background—
+                legacy families, scholarship students, athletes, artists,
+                researchers, and people who have not yet decided who they want to become.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-image"></div>
+
+            <div class="about-copy">
+
+                <h3>
+                    Tradition matters here.
+                    So does everything that comes after it.
+                </h3>
+
+                <p>
+                    Rutherford University is one of the country's oldest
+                    and most respected private universities. Its historic campus,
+                    academic traditions, and student life have grown together
+                    for generations.
+                </p>
+
+                <p>
+                    The university is particularly known for its programs in
+                    political science, international relations, law, economics,
+                    business, and the humanities.
+                </p>
+
+                <div class="motto">
+
+                    <strong>“Tradition, Inquiry, Influence.”</strong>
+
+                    <span>
+                        Tradition gives us a foundation.
+                        Inquiry asks us to question it.
+                        Influence asks what we do next.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="stats">
+
+        <div class="stats-inner">
+
+            <div class="stat">
+                <strong>1847</strong>
+                <span>Year Founded</span>
+            </div>
+
+            <div class="stat">
+                <strong>8,000+</strong>
+                <span>Undergraduate Students</span>
+            </div>
+
+            <div class="stat">
+                <strong>90+</strong>
+                <span>Student Organizations</span>
+            </div>
+
+            <div class="stat">
+                <strong>26</strong>
+                <span>August · Rutherford Day</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACADEMICS -->
+
+    <section class="academics" id="academics">
+
+        <div class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="eyebrow">Academics</div>
+                    <h2>Where ideas<br>become influence.</h2>
+                </div>
+
+                <p>
+                    From lecture halls and research libraries to student-run
+                    publications and late-night conversations, learning at
+                    Rutherford rarely stays inside the classroom.
+                </p>
+
+            </div>
+
+
+            <div class="academic-grid">
+
+                <div class="academic-card">
+
+                    <div class="academic-number">01</div>
+
+                    <h3>Politics & Law</h3>
+
+                    <p>
+                        Political science, international relations,
+                        public policy, and legal studies.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="academic-number">02</div>
+
+                    <h3>Economics & Business</h3>
+
+                    <p>
+                        Economics, finance, management,
+                        and global business.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="academic-number">03</div>
+
+                    <h3>Humanities</h3>
+
+                    <p>
+                        Literature, history, philosophy,
+                        languages, and cultural studies.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="academic-number">04</div>
+
+                    <h3>Natural Sciences</h3>
+
+                    <p>
+                        Research and laboratory programs
+                        across the sciences.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="academic-number">05</div>
+
+                    <h3>Arts & Culture</h3>
+
+                    <p>
+                        Music, visual arts, media,
+                        theatre, and creative practice.
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="academic-number">06</div>
+
+                    <h3>Independent Study</h3>
+
+                    <p>
+                        Individual research projects
+                        developed with faculty mentorship.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAMPUS -->
+
+    <section class="section" id="campus">
+
+        <div class="section-heading">
+
+            <div>
+                <div class="eyebrow">Campus Life</div>
+                <h2>There is always<br>somewhere to go.</h2>
+            </div>
+
+            <p>
+                From quiet mornings in the library to crowded game days,
+                Rutherford changes with the season—and with the people living in it.
+            </p>
+
+        </div>
+
+
+        <div class="campus-grid">
+
+            <div class="campus-card founder">
+                <small>01</small>
+                <span>Founder Hall</span>
+            </div>
+
+            <div class="campus-card library">
+                <small>02</small>
+                <span>Rutherford Library</span>
+            </div>
+
+            <div class="campus-card cherry">
+                <small>03</small>
+                <span>Cherry Walk</span>
+            </div>
+
+            <div class="campus-card lake">
+                <small>04</small>
+                <span>Rutherford Lake</span>
+            </div>
+
+            <div class="campus-card stadium">
+                <small>05</small>
+                <span>Lacrosse Stadium</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EVENTS -->
+
+    <section class="events" id="events">
+
+        <div class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="eyebrow">Annual Traditions</div>
+                    <h2>A year at<br>Rutherford.</h2>
+                </div>
+
+                <p>
+                    Every month brings a different tradition,
+                    event, season, and reason for the campus to come alive.
+                </p>
+
+            </div>
+
+
+            <div class="event-list">
+
+                <div class="event-row">
+                    <div class="event-month">FEB</div>
+                    <div class="event-name">💌 Secret Valentine</div>
+                    <div class="event-description">
+                        Anonymous gifts and messages passed quietly across campus.
+                    </div>
+                    <div class="event-tag">STUDENT EVENT</div>
+                </div>
+
+
+                <div class="event-row">
+                    <div class="event-month">MAR</div>
+                    <div class="event-name">✉️ Letter Week</div>
+                    <div class="event-description">
+                        One of Rutherford's oldest traditions, built around letters and unspoken feelings.
+                    </div>
+                    <div class="event-tag">TRADITION</div>
+                </div>
+
+
+                <div class="event-row">
+                    <div class="event-month">MAR</div>
+                    <div class="event-name">💋 Kissing Booth Week</div>
+                    <div class="event-description">
+                        A playful spring fundraiser with one of the campus's most famous romantic superstitions.
+                    </div>
+                    <div class="event-tag">SPRING</div>
+                </div>
+
+
+                <div class="event-row">
+                    <div class="event-month">APR</div>
+                    <div class="event-name">🔎 Scavenger Hunt</div>
+                    <div class="event-description">
+                        Teams follow clues through hidden corners and historic places across campus.
+                    </div>
+                    <div class="event-tag">CAMPUS LIFE</div>
+                </div>
+
+
+                <div class="event-row">
+                    <div class="event-month">MAY</div>
+                    <div class="event-name">🌸 Spring Formal</div>
+                    <div class="event-description">
+                        A formal spring evening of music, photographs, and the end of the academic year.
+                    </div>
+                    <div class="event-tag">FORMAL</div>
+                </div>
+
+
+                <div class="event-row">
+                    <div class="event-month">AUG</div>
+                    <div class="event-name">🏛 Rutherford Day</div>
+                    <div class="event-description">
+                        August 26. A university holiday filled with games, picnics, markets, films, and music.
+                    </div>
+                    <div class="event-tag">ANNIVERSARY</div>
+                </div>
+
+
+                <div class="event-row">
+                    <div class="event-month">SEP</div>
+                    <div class="event-name">🎡 Rutherford Fall Fair</div>
+                    <div class="event-description">
+                        Food trucks, rides, vintage stalls, student work, and the beginning of autumn.
+                    </div>
+                    <div class="event-tag">FALL</div>
+                </div>
+
+
+                <div class="event-row">
+                    <div class="event-month">OCT</div>
+                    <div class="event-name">🍂 Homecoming</div>
+                    <div class="event-description">
+                        A week of alumni events, lacrosse, formal gatherings, parties, and campus gossip.
+                    </div>
+                    <div class="event-tag">ANNUAL EVENT</div>
+                </div>
+
+
+                <div class="event-row">
+                    <div class="event-month">NOV</div>
+                    <div class="event-name">🏮 The Lantern Walk</div>
+                    <div class="event-description">
+                        Students walk Cherry Walk together on one of the final autumn nights.
+                    </div>
+                    <div class="event-tag">TRADITION</div>
+                </div>
+
+
+                <div class="event-row">
+                    <div class="event-month">DEC</div>
+                    <div class="event-name">🌙 Midnight Breakfast</div>
+                    <div class="event-description">
+                        At midnight during finals, students, professors, and the student council gather for breakfast.
+                    </div>
+                    <div class="event-tag">FINALS WEEK</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RUTHERFORD DAY -->
+
+    <section class="rutherford-day">
+
+        <div class="rutherford-day-inner">
+
+            <div class="eyebrow">August 26</div>
+
+            <h2>Rutherford Day</h2>
+
+            <div class="day-grid">
+
+                <div class="day-copy">
+
+                    <p>
+                        The university's own anniversary.
+                        There are no classes. Instead, the campus fills with
+                        student council games, faculty-versus-student matches,
+                        club booths, picnics, food trucks, vintage markets,
+                        exhibitions, outdoor films, and music.
+                    </p>
+
+                    <p>
+                        More than anything, it is known as the day students
+                        spread blankets across Central Lawn and spend the entire
+                        day with the people around them.
+                    </p>
+
+                </div>
+
+
+                <div class="flower-box">
+
+                    <span>UNIVERSITY FLOWER</span>
+
+                    <h3>Hypoxis Orissa</h3>
+
+                    <p>
+                        The representative flower of Rutherford University.
+                    </p>
+
+                    <p>
+                        Its meaning is:
+                        <strong style="color:#dfc991;">“Find the Light.”</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ATHLETICS -->
+
+    <section class="athletics" id="athletics">
+
+        <div class="athletics-image"></div>
+
+        <div class="athletics-copy">
+
+            <div class="eyebrow">Rutherford Raiders</div>
+
+            <h2>Lacrosse<br>is tradition.</h2>
+
+            <p>
+                Lacrosse is Rutherford's signature sport.
+                Home games transform the atmosphere of the entire campus,
+                bringing students, alumni, and generations of supporters
+                into the stadium.
+            </p>
+
+            <p>
+                The sport is particularly associated with Rutherford's
+                long-established families and athletic traditions,
+                but game days belong to everyone.
+            </p>
+
+            <div class="sports-list">
+
+                <span>Lacrosse</span>
+                <span>Football</span>
+                <span>Basketball</span>
+                <span>Rowing</span>
+                <span>Tennis</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ADMISSIONS -->
+
+    <section class="section" id="admissions">
+
+        <div class="section-heading">
+
+            <div>
+                <div class="eyebrow">Admissions</div>
+                <h2>Your place<br>at Rutherford.</h2>
+            </div>
+
+            <p>
+                Every generation of students arrives differently.
+                What they find here—and what they leave behind—is part of the story.
+            </p>
+
+        </div>
+
+        <a href="#" class="button primary">
+            Begin Your Journey
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-top">
+
+                <div class="footer-brand">
+
+                    <h3>Rutherford University</h3>
+
+                    <p>
+                        Tradition, Inquiry, Influence.
+                        A historic university shaped by the people who call it home.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <strong>EXPLORE</strong>
+
+                    <a href="#">About</a>
+                    <a href="#">Academics</a>
+                    <a href="#">Campus Life</a>
+                    <a href="#">Athletics</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <strong>COMMUNITY</strong>
+
+                    <a href="#">Students</a>
+                    <a href="#">Faculty</a>
+                    <a href="#">Alumni</a>
+                    <a href="#">Student Government</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <strong>VISIT</strong>
+
+                    <a href="#">Campus Map</a>
+                    <a href="#">Events</a>
+                    <a href="#">Admissions</a>
+                    <a href="#">Contact</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © Rutherford University · All rights reserved.
+                </span>
+
+                <span>
+                    1847 — Present
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
